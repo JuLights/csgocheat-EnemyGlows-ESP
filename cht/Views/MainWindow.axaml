@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:cht.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+        x:Class="cht.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="cht"
+        HasSystemDecorations="False"
+        Background="Black"
+        WindowStartupLocation="CenterScreen"
+         ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaTitleBarHeightHint="400"
+        ExtendClientAreaChromeHints="NoChrome"
+        TransparencyLevelHint="AcrylicBlur">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+  
+  
+  <StackPanel Orientation="Vertical">
+    
+    <StackPanel Spacing="2" HorizontalAlignment="Left" Orientation="Horizontal">
+      <Button VerticalAlignment="Top" Command="{Binding AppExit}" HorizontalAlignment="Left" Background="Red" BorderBrush="Red" Width="15" CornerRadius="100"></Button>
+      <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Orange" BorderBrush="Orange" Width="15" CornerRadius="100"></Button>
+      <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Green" BorderBrush="Green" Width="15" CornerRadius="100"></Button>
+    </StackPanel>
+
+    <StackPanel HorizontalAlignment="Center" Margin="5,20,5,0" Orientation="Vertical" >
+      <TextBlock Text="{Binding ProcessStatus}" Margin="0" FontSize="15" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+      <TextBlock Text="{Binding ClientStatus}" Margin="0" FontSize="15" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </StackPanel>
+
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical" Margin="0,100,0,0">
+      <Button ClickMode="Press" Command="{Binding StartCommand}" IsEnabled="{Binding IsEnable}" Foreground="White" BorderThickness="1"  BorderBrush="Blue">Start</Button>
+    </StackPanel>
+
+  </StackPanel>
+
+
+
+</Window>
